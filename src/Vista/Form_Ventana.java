@@ -7,6 +7,8 @@ package Vista;
 
 import Controlador.Calculo;
 import Modelo.Numero;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -263,10 +265,25 @@ public class Form_Ventana extends javax.swing.JFrame {
 
         Calculo cal = new Calculo();
         String mensaje = "";
+        int num1 = 0;
+        int num2 = 0;
+                
         //rescatar los datos del formulario
-        int num1 = Integer.parseInt(this.jtxt_num1.getText());
-        int num2 = Integer.parseInt(this.jtxt_num2.getText());
-        Numero num = new Numero(num1, num2);
+        
+        try {
+            num1 = Integer.parseInt(this.jtxt_num1.getText());
+            num2 = Integer.parseInt(this.jtxt_num2.getText());
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de ingreso", "Validación",0);
+            this.jtxt_num1.setBackground(Color.red);
+            this.jtxt_num2.setBackground(Color.red);
+            this.jtxt_num1.requestFocus();
+           
+        }
+        
+       Numero num = new Numero(num1, num2);
+        
 
         int suma = cal.sumar(num);
         String sumaStr = String.valueOf(suma);
@@ -309,6 +326,13 @@ public class Form_Ventana extends javax.swing.JFrame {
         }
 
         // ahora los checkbox
+        
+        if (this.jchkb_futbol.isSelected()==false && this.jchkb_voley.isSelected()==false && this.jchkb_ciclismo.isSelected()==false) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar alguno de los deportes","Aviso",1);
+        }
+        
+        
+        
         if (this.jchkb_futbol.isSelected()) {
             this.jlbl_mensaje.setText(mensaje + " le gusta el fútbol");
         } 
@@ -343,6 +367,10 @@ public class Form_Ventana extends javax.swing.JFrame {
         this.jlbl_mensaje.setText("");
         this.jcb_operaciones.setSelectedIndex(0);
         this.jrbtn_otro.setSelected(true);
+        this.jchkb_voley.setSelected(false);
+        this.jchkb_ciclismo.setSelected(false);
+        this.jchkb_futbol.setSelected(false);
+        
         this.jtxt_num1.requestFocus();
 
 
