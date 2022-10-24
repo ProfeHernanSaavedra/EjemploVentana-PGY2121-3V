@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Controlador.Calculo;
+import Modelo.Numero;
+
 /**
  *
  * @author USRVI-LC2
@@ -16,6 +19,7 @@ public class Form_Ventana extends javax.swing.JFrame {
      */
     public Form_Ventana() {
         initComponents();
+        this.jrbtn_otro.setSelected(true);
     }
 
     /**
@@ -27,18 +31,27 @@ public class Form_Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jtxt_num1 = new javax.swing.JTextField();
         jtxt_num2 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jbtn_sumar = new javax.swing.JButton();
+        jbtn_calcular = new javax.swing.JButton();
         jbtn_limpiar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jlbl_mensaje = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jrbtn_femenino = new javax.swing.JRadioButton();
+        jrbtn_masculino = new javax.swing.JRadioButton();
+        jrbtn_otro = new javax.swing.JRadioButton();
+        jchkb_futbol = new javax.swing.JCheckBox();
+        jchkb_voley = new javax.swing.JCheckBox();
+        jchkb_ciclismo = new javax.swing.JCheckBox();
+        jcb_operaciones = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mi Primera Ventana");
@@ -55,7 +68,7 @@ public class Form_Ventana extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(60, 60, 60)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtxt_num1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -74,17 +87,17 @@ public class Form_Ventana extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jtxt_num1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_num2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
 
-        jbtn_sumar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dibujar-sumando-cruz.png"))); // NOI18N
-        jbtn_sumar.setText("Sumar");
-        jbtn_sumar.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_calcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calculadora.png"))); // NOI18N
+        jbtn_calcular.setText("Calcular");
+        jbtn_calcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_sumarActionPerformed(evt);
+                jbtn_calcularActionPerformed(evt);
             }
         });
 
@@ -102,7 +115,7 @@ public class Form_Ventana extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(92, 92, 92)
-                .addComponent(jbtn_sumar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtn_calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbtn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -112,7 +125,7 @@ public class Form_Ventana extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtn_sumar)
+                    .addComponent(jbtn_calcular)
                     .addComponent(jbtn_limpiar))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -127,20 +140,86 @@ public class Form_Ventana extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jlbl_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbl_mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jlbl_mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jlbl_mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
         );
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/duke2.png"))); // NOI18N
+
+        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Acciones"));
+
+        buttonGroup1.add(jrbtn_femenino);
+        jrbtn_femenino.setText("Femenino");
+
+        buttonGroup1.add(jrbtn_masculino);
+        jrbtn_masculino.setText("Masculino");
+        jrbtn_masculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbtn_masculinoActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jrbtn_otro);
+        jrbtn_otro.setText("Otro");
+
+        jchkb_futbol.setText("Futbol");
+
+        jchkb_voley.setText("Voleyball");
+        jchkb_voley.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jchkb_voleyActionPerformed(evt);
+            }
+        });
+
+        jchkb_ciclismo.setText("Ciclismo");
+
+        jcb_operaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Sumar", "Restar", "Multiplicar", "Dividir" }));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jrbtn_femenino)
+                    .addComponent(jrbtn_masculino)
+                    .addComponent(jrbtn_otro))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jchkb_ciclismo)
+                    .addComponent(jchkb_voley)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jchkb_futbol)
+                        .addGap(76, 76, 76)
+                        .addComponent(jcb_operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrbtn_femenino)
+                    .addComponent(jchkb_futbol)
+                    .addComponent(jcb_operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrbtn_masculino)
+                    .addComponent(jchkb_voley))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrbtn_otro)
+                    .addComponent(jchkb_ciclismo))
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,25 +227,28 @@ public class Form_Ventana extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(95, 95, 95)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(56, 56, 56)
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -177,31 +259,102 @@ public class Form_Ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtn_sumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_sumarActionPerformed
-        
+    private void jbtn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_calcularActionPerformed
+
+        Calculo cal = new Calculo();
+        String mensaje = "";
         //rescatar los datos del formulario
         int num1 = Integer.parseInt(this.jtxt_num1.getText());
         int num2 = Integer.parseInt(this.jtxt_num2.getText());
-        
-        int suma = num1 + num2;
-        
+        Numero num = new Numero(num1, num2);
+
+        int suma = cal.sumar(num);
         String sumaStr = String.valueOf(suma);
+
+        int restar = cal.restar(num);
+        String restarStr = String.valueOf(restar);
+
+        int multi = cal.multi(num);
+        String multiStr = String.valueOf(multi);
+
+        double dividir = cal.dividir(num);
+        String dividirStr = String.valueOf(dividir);
+
+        if (this.jcb_operaciones.getSelectedIndex() == 1) {
+            mensaje = "La suma de los números es: " + sumaStr;
+        } else {
+            if (this.jcb_operaciones.getSelectedIndex() == 2) {
+                mensaje = "La resta de los números es: " + restarStr;
+            } else {
+                if (this.jcb_operaciones.getSelectedIndex() == 3) {
+                    mensaje = "La multiplicación de los números es: " + multiStr;
+                } else {
+                    if (this.jcb_operaciones.getSelectedIndex() == 4) {
+                        mensaje = "La división de los números es: " + dividirStr;
+
+                    }
+                }
+            }
+        }
+
+        // ahora los radiobutton
+        if (this.jrbtn_femenino.isSelected()) {
+            mensaje = mensaje + " y es de sexo femenino";
+        } else {
+            if (this.jrbtn_masculino.isSelected()) {
+                mensaje = mensaje + " y es de sexo masculino";
+            } else {
+                mensaje = mensaje + " y es de sexo otro";
+            }
+        }
+
+        // ahora los checkbox
+        if (this.jchkb_futbol.isSelected()) {
+            this.jlbl_mensaje.setText(mensaje + " le gusta el fútbol");
+        } 
+        if (this.jchkb_voley.isSelected()) {
+            this.jlbl_mensaje.setText(mensaje + " le gusta el voley");
+        } 
+        if (this.jchkb_ciclismo.isSelected()) {
+            this.jlbl_mensaje.setText(mensaje + " le gusta el ciclismo");
+        }
+        if (this.jchkb_futbol.isSelected() && this.jchkb_voley.isSelected()) {
+            this.jlbl_mensaje.setText(mensaje + " le gusta el fútbol y voley");
+        } 
+        if (this.jchkb_futbol.isSelected() && this.jchkb_ciclismo.isSelected()) {
+            this.jlbl_mensaje.setText(mensaje + " le gusta el fútbol y ciclismo");
+        }
+                        
+        if (this.jchkb_voley.isSelected() && this.jchkb_ciclismo.isSelected()) {
+            this.jlbl_mensaje.setText(mensaje + " le gusta el voley y ciclismo");
+        }
         
-        
-        this.jlbl_mensaje.setText("La suma de los números es: " + sumaStr);
-        
-        
-    }//GEN-LAST:event_jbtn_sumarActionPerformed
+         if (this.jchkb_voley.isSelected() && this.jchkb_ciclismo.isSelected()&& this.jchkb_futbol.isSelected()) {
+            this.jlbl_mensaje.setText(mensaje + " le gusta el futbol, voley y ciclismo");
+        }
+              
+
+    }//GEN-LAST:event_jbtn_calcularActionPerformed
 
     private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
-        
+
         this.jtxt_num1.setText("");
         this.jtxt_num2.setText("");
         this.jlbl_mensaje.setText("");
+        this.jcb_operaciones.setSelectedIndex(0);
+        this.jrbtn_otro.setSelected(true);
         this.jtxt_num1.requestFocus();
-        
-        
+
+
     }//GEN-LAST:event_jbtn_limpiarActionPerformed
+
+    private void jrbtn_masculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbtn_masculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbtn_masculinoActionPerformed
+
+    private void jchkb_voleyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchkb_voleyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jchkb_voleyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,6 +392,7 @@ public class Form_Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -246,9 +400,17 @@ public class Form_Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton jbtn_calcular;
     private javax.swing.JButton jbtn_limpiar;
-    private javax.swing.JButton jbtn_sumar;
+    private javax.swing.JComboBox<String> jcb_operaciones;
+    private javax.swing.JCheckBox jchkb_ciclismo;
+    private javax.swing.JCheckBox jchkb_futbol;
+    private javax.swing.JCheckBox jchkb_voley;
     private javax.swing.JLabel jlbl_mensaje;
+    private javax.swing.JRadioButton jrbtn_femenino;
+    private javax.swing.JRadioButton jrbtn_masculino;
+    private javax.swing.JRadioButton jrbtn_otro;
     private javax.swing.JTextField jtxt_num1;
     private javax.swing.JTextField jtxt_num2;
     // End of variables declaration//GEN-END:variables
